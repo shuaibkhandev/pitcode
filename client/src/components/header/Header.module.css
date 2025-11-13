@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.workBtn {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 6px 14px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.3s;
+}
+
+.workBtn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
