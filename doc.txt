@@ -1,0 +1,2 @@
+strapiEmail: skhan.csit@gmail.com
+strapiPassword: Admin123
