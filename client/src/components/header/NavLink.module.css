@@ -1,7 +1,8 @@
 .link {
   text-decoration: none;
-  color: #ccc;
-  font-weight: 400;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 500;
   transition: color 0.2s;
 }
 

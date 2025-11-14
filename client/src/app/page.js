@@ -1,8 +1,13 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Hero from "@/components/Hero/Hero";
+import { getHeroByPage } from "@/lib/strapi";
 
-export default function Home() {
+export default async function Home() {
+    const hero = await getHeroByPage("home");
   return (
-    <h1>Hello from nextjs</h1>
+   <main>
+     {hero && <Hero data={hero} />}
+   </main>
   );
 }

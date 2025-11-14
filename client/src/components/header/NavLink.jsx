@@ -4,13 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./NavLink.module.css";
 
-export default function NavLink({ href, label }) {
+export default function NavLink({ url, label }) {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = pathname === url;
 
   return (
     <Link
-      href={href}
+      href={url}
       className={`${styles.link} ${isActive ? styles.active : ""}`}
     >
       {label}
