@@ -16,10 +16,10 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 36px;
 }
 
-.workBtn {
+.work_btn {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
@@ -29,7 +29,7 @@
   align-items: center;
 }
 
-.workBtn:hover {
+.work_btn:hover {
     color: #fff;
 }
 

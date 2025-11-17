@@ -20,7 +20,7 @@ export default async function Header() {
         ))}
       </nav>
 
-      <Link href={cta.url} className={styles.workBtn}>
+      <Link href={cta.url} className={styles.work_btn}>
         {cta.text} <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
 <path d="M9.74859 18.611L18.6109 9.74862M18.6109 9.74862L11.7426 9.52706M18.6109 9.74862L18.8325 16.6169" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
