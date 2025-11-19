@@ -4,10 +4,10 @@ import styles from "./projects.module.css";
 
 const SectionHeading = ({ title, subtitle, btn_text, btn_url }) => {
   return (
-    <div className={styles.head}>
+    <div className={`${styles.head} section_top two_col `}>
       <div className={styles.left}>
-        <h2 className={styles.title}>{title}</h2>
-        <p className={styles.sub_title}>{subtitle}</p>
+        <h2 className={"title"}>{title}</h2>
+        <p className={"sub_title"}>{subtitle}</p>
       </div>
 
       <div className={styles.right}>

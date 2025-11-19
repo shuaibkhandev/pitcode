@@ -1,0 +1,44 @@
+.testimonials_section{}
+
+.sliderWrapper {
+  position: relative;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.text {
+  color: #333;
+  line-height: 1.6;
+}
+
+.userBox {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.userName {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.userPosition {
+  font-size: 14px;
+  color: #666;
+}
+
+
+
+.testimonials_section .swiper {
+
+}
+
+

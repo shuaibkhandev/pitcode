@@ -1,34 +1,5 @@
-.section {
-  padding: 60px 0;
-  background-color: rgba(240, 240, 240, 0.4);
-}
+.process_section{}
 
-.head{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-     max-width: 1084px;
-     margin: auto;
-     margin-bottom: 50px;
-}
-.heading {
-  font-size: 50px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #000;
-  text-transform: uppercase;
-
- 
-}
-
-.sub_heading {
-  color: #373737;
-  font-size: 20px;
-  line-height: 34px;
-  font-weight: 400;
-  max-width: 724px;
-  text-align: center;
-}
 
 .grid {
   display: grid;
@@ -81,8 +52,9 @@
 }
 
 .desc {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 32px;
-  color: rgb(106 106 106 / 70%);
+  transition: 0.3s ease;
+}
+
+.card:hover .desc{
+  color: #fff;
 }

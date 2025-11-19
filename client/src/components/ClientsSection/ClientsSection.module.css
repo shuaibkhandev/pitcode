@@ -1,7 +1,4 @@
-.section {
-  padding: 4rem 2rem;
-}
-
+.clients_section{}
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -103,7 +100,7 @@
 }
 
 /* Overlay that appears on hover */
-.card-overlay {
+.card_overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -113,37 +110,30 @@
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
+  align-items: flex-start;
+  padding: 75px 34px;
   opacity: 0;
   transition: opacity 0.3s ease;
-  text-align: center;
 }
 
-.card:hover .card-overlay {
+.card:hover .card_overlay {
   opacity: 1;
 }
 
 .card h3 {
   margin-bottom: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 30px;
+  line-height: 42px;
+  font-weight: 700;
 }
 
 .card p {
-  font-size: 0.875rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
+  color: #fff;
+  text-align: start;
 }
 
-.cta {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: #333;
-  color: #fff;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  text-decoration: none;
+.card a {
+  margin-top: auto;
 }
 
 .logo {
@@ -154,5 +144,5 @@
 }
 
 .card:hover .logo {
-  opacity: 0.2; /* fade the logo when overlay appears */
+  opacity: 0.2;
 }

@@ -10,7 +10,7 @@ const ProjectsSection = async  () => {
   if (!projects || projects.length === 0) return null;
 
   return (
-     <section className={`${styles.section} section_bg`}>
+     <section className={`${styles.projects_section} section_padding section_bg`}>
         <div className="main_container">
    <SectionHeading 
           title={projects[0].title} 

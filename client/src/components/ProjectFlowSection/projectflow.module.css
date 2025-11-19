@@ -1,0 +1,105 @@
+
+.projects_flow_section{}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: #F0F0F0;
+  border-radius: 12px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all .3s ease-in-out;
+}
+
+.image {
+  border-radius: 12px;
+}
+
+.card_title {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* DARK ONLY ON HOVER */
+.card:hover {
+  background: #000000;       /* dark mode on hover */
+  color: #ffffff;
+}
+
+/* Fix children colors on hover */
+.card:hover .card_title,
+.card:hover .description,
+.card:hover .number {
+  color: #ffffff;
+}
+
+.card:hover .button {
+  background: #ffffff;
+  color: #000000;
+}
+.card .description {
+margin-block: 14px;
+
+}
+
+.number {
+  font-size: 30px;
+  font-weight: 600;
+  color: rgba(8, 13, 16, 0.3);
+      margin-bottom: auto;
+    margin-left: auto;
+    padding-right: 23px;
+    padding-top: 32px;
+}
+.card .bottom{
+  padding: 0 23px 32px;
+}
+.card .cta{
+  transition: all .3s ease-in-out;
+}
+.card:hover .cta {
+  background: #fff;
+}
+
+.cta:hover{
+  color: #000;
+}
+
+.dark {
+  background: #000;
+  color: #fff;
+}
+
+.dark .button {
+  background: #333;
+  color: #fff;
+  border: none;
+}
+
+/* disable hover for image cards */
+.imageCard:hover {
+  background: none !important;
+  color: inherit !important;
+}
+
+/* apply hover only to normal cards */
+.card:not(.imageCard):hover {
+  background: #000;
+  color: #fff;
+}
+
+.card:not(.imageCard):hover .card_title,
+.card:not(.imageCard):hover .description,
+.card:not(.imageCard):hover .number {
+  color: #fff;
+}
+
+.card:not(.imageCard):hover .button {
+  background: #fff;
+  color: #000;
+}

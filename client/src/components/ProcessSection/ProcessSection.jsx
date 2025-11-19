@@ -9,11 +9,11 @@ export default async function ProcessSection() {
   const { title, sub_title, steps } = data;
 
   return (
-    <section className={`${styles.section} section_bg`}>
+    <section className={`${styles.process_section} section_padding section_bg`}>
       <div className="main_container">
-        <div className={styles.head}>
-          <h2 className={styles.heading}>{title}</h2>
-          <p className={styles.sub_heading}>{sub_title}</p>
+        <div className="section_top">
+          <h2 className="title">{title}</h2>
+          <p className="sub_title">{sub_title}</p>
         </div>
 
         <div className={styles.grid}>
@@ -22,7 +22,7 @@ export default async function ProcessSection() {
               <div className={styles.number}>{step.number}</div>
 
               <h3 className={styles.title}>{step.title}</h3>
-              <p className={styles.desc}>{step.description}</p>
+              <p className={`${styles.desc} secondary_text`}>{step.description}</p>
             </div>
           ))}
         </div>

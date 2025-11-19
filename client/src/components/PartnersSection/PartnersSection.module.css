@@ -1,0 +1,13 @@
+.partner_section{}
+.imageContainer {
+  width: 100%;
+  position: relative;
+  height: 738px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
