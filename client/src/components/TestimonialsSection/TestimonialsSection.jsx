@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./TestimonialsSection.module.css";
+import "./TestimonialsSectionSlider.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -30,24 +31,22 @@ export default function TestimonialsSection() {
     loadData();
   }, []);
 
-  console.log(section);
   
 
   if (!section) return null;
 
   const testimonials = section[0].testimonia || [];
-console.log(testimonials);
 
   return (
-    <section className={`${styles.testimonials_section} section_padding`}>
+    <section className={`${styles.testimonials_section} section_padding testimonials_section`}>
       <div className="main_container">
         <div className="section_top">
           <h2 className="title">{section[0].title}</h2>
 
-          <p className="sub_title">{section[0].subt_title}</p>
+          <p className="sub_title">{section[0].description}</p>
 
           <button className={"cta_primary"}>
-            {section[0].btn_text}   <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+            {section[0].cta_text}   <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
 <path d="M9.74859 18.611L18.6109 9.74862M18.6109 9.74862L11.7426 9.52706M18.6109 9.74862L18.8325 16.6169" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
 </svg> 
           </button>

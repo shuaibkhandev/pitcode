@@ -15,8 +15,8 @@ const ProjectsSection = async  () => {
    <SectionHeading 
           title={projects[0].title} 
           subtitle={projects[0].description} 
-          btn_text={projects[0].btn_text} 
-          btn_url={projects[0].btn_url} 
+          btn_text={projects[0].cta_text} 
+          btn_url={projects[0].cta_url} 
         />
 
       <div className={styles.grid}>
@@ -25,8 +25,8 @@ const ProjectsSection = async  () => {
               key={item.id}
               image={item.image?.url || ""}
               title={item.title}
-              subtitle={item.sub_title}
-              href={item.slug || "#"}
+              subtitle={item.description}
+              href={item.url || "#"}
             />
           ))}
       </div>

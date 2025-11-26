@@ -1,8 +1,8 @@
-import {  getProjectsFlowSection } from "./lib/strapi.js";
+import {  getBlogs, getProjectsFlowSection } from "./lib/strapi.js";
 
 async function test() {
   try {
-    const header = await getProjectsFlowSection();
+    const header = await getBlogs();
     console.log(header);
   } catch (err) {
     console.error(err);

@@ -13,7 +13,7 @@ import TestimonialsSection from "@/components/TestimonialsSection/TestimonialsSe
 export default async function Home() {
     const hero = await getHeroByPage("home");
   return (
-   <main>
+   <div className="home_page">
      {hero && <Hero data={hero} />}
      <ProjectsSection />
      <ClientsSection />
@@ -22,6 +22,6 @@ export default async function Home() {
      <ProjectFlowSection/>
       <PartnersSection />
       <TestimonialsSection/>
-   </main>
+   </div>
   );
 }

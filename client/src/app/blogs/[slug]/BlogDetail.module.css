@@ -1,0 +1,108 @@
+.container {
+
+}
+
+
+.subtitle {
+  margin-top: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  color: #000;
+  max-width: 1195px;
+  line-height: 52px;
+}
+.text{
+    max-width: 1450px;
+    margin-top: 20px;
+}
+
+.bannerBox {
+  margin: 30px 0;
+}
+
+.banner {
+  border-radius: 12px;
+  width: 100%;
+  height: auto;
+}
+
+.contentWrapper {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Sidebar */
+.sidebar {
+
+}
+
+.table_content{
+      width: 250px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  height: fit-content;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.sidebar ul {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Social */
+.social {
+  margin-top: 30px;
+  text-align: center;
+}
+.icons{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.icons a {
+  margin-right: 10px;
+}
+
+/* Article */
+.article {
+  flex: 1;
+}
+
+.article h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.article p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.article ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contentWrapper {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+}

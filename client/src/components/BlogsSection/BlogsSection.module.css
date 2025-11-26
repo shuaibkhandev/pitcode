@@ -1,0 +1,62 @@
+.blog_section {
+}
+
+
+.categories {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 52px;
+}
+
+.categoryBtn {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.categoryBtn:hover {
+  color: #000;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #333333;
+}
+
+
+.date {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+}

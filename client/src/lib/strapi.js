@@ -55,7 +55,7 @@ export async function getHeroByPage(page) {
     sub_title: hero.sub_title,
     breadcrumb: hero.breadcrumb,
     description: hero.description?.map(p => p.children.map(c => c.text).join("")).join("\n") || "",
-    button: { text: hero.button_text, url: hero.button_url },
+    cta: { text: hero.cta_text, url: hero.cta_url, target:hero.cta_target },
   };
 }
 
@@ -80,8 +80,8 @@ export async function getProjectsSection() {
       return {
         id: item.id,
         title: item.title,
-        slug: item.slug,
-        sub_title: item.sub_title,
+        url: item.url,
+        description: item.description,
         image: img
           ? {
               url: img.url,
@@ -98,10 +98,10 @@ export async function getProjectsSection() {
       documentId: project.documentId,
       page: project.page,
       title: project.title,
-      description: project.sub_title,
-      btn_text: project.btn_text,
-      btn_url: project.btn_url,
-      btn_target: project.btn_target,
+      description: project.description,
+      cta_text: project.cta_text,
+      cta_url: project.cta_url,
+      cta_target: project.cta_target,
       items,
     };
   });
@@ -138,12 +138,12 @@ export async function getClientsSection() {
 
         return {
           id: item.id,
-          slug: item.slug,
+          url: item.url,
           name: item.name,
           description: item.description,
-          btn_text: item.btn_text,
-          btn_url: item.btn_url,
-          btn_target: item.btn_target,
+          cta_text: item.cta_text,
+          cta_url: item.cta_url,
+          cta_target: item.cta_target,
           image: img
             ? {
                 url: imgUrl,
@@ -159,7 +159,7 @@ export async function getClientsSection() {
       id: section.id,
       documentId: section.documentId,
       title: section.title,
-      sub_title: section.sub_title,
+      description : section.description,
       items,
     };
   });
@@ -197,7 +197,7 @@ export async function getProcessSection() {
     id: section.id,
     documentId: section.documentId,
     title: section.title,
-    sub_title: section.sub_title,
+    description: section.description,
     steps,
   };
 }
@@ -245,8 +245,9 @@ export async function getServicesSection() {
           badge_label: svc.badge_label,
           title: svc.title,
           description: svc.description,
-          btn_text: svc.btn_text,
-          btn_url: svc.btn_url,
+          cta_text: svc.cta_text,
+          cta_url: svc.cta_url,
+          cta_target: svc.cta_target,
 
           badge_icon: badgeIcon
             ? {
@@ -318,8 +319,9 @@ export async function getProjectsFlowSection() {
           number: item.number || null,
           title: item.title || null,
           description: item.description || null,
-          btn_text: item.btn_text || null,
-          btn_url: item.btn_url || null,
+          cta_text: item.cta_text || null,
+          cta_url: item.cta_url || null,
+          cta_target: item.cta_target || null,
           type: item.type || (image ? "image" : null),
           image: image
             ? {
@@ -365,9 +367,10 @@ export async function getPartnersSection() {
 
   return {
     title: data.title,
-    subtitle: data.sub_title,
-    button_text: data.btn_text,
-    button_url: data.btn_url,
+    description: data.description,
+    cta_text: data.cta_text,
+    cta_url: data.cta_url,
+    cta_target: data.cta_target,
     image: {
       url: imgUrl,
       alt: image?.alternativeText || data.title,
@@ -387,3 +390,110 @@ export async function getTestimonialsSection() {
   return json.data;
 }
 
+
+export async function getBlogSection() {
+  const res = await fetch(`${STRAPI_URL}/api/blog-section?populate=*`, {
+    next: { revalidate: 60 },
+  });
+
+  const json = await res.json();
+  const data = json?.data;
+
+  if (!data) return null;
+
+  return {
+    title: data.title,
+    description: data.description,
+  };
+}
+
+
+
+export async function getBlogCategories() {
+  const res = await fetch(`${STRAPI_URL}/api/blog-categories`, {
+    next: { revalidate: 60 },
+  });
+
+  const json = await res.json();
+  return json.data || [];
+}
+
+
+
+export async function getBlogs() {
+  const res = await fetch(`${STRAPI_URL}/api/blogs?populate=*`, {
+    next: { revalidate: 60 },
+  });
+
+  if (!res.ok) {
+    console.error("Failed to fetch blogs");
+    return [];
+  }
+
+  const json = await res.json();
+  const data = json?.data || [];
+
+  return data.map((blog) => {
+    const banner = blog.banner;
+    const bannerUrl = banner?.url
+      ? banner.url.startsWith("http")
+        ? banner.url
+        : STRAPI_URL + banner.url
+      : null;
+
+    // Map content blocks to plain text for simple display
+    const content = blog.content?.map((block) => {
+      switch (block.type) {
+        case "heading":
+          return {
+            type: "heading",
+            level: block.level,
+            text: block.children?.map((c) => c.text).join("") || "",
+          };
+        case "paragraph":
+          return {
+            type: "paragraph",
+            text: block.children?.map((c) => c.text).join("") || "",
+          };
+        case "list":
+          return {
+            type: "list",
+            format: block.format,
+            items:
+              block.children?.map((item) =>
+                item.children?.map((c) => c.text).join("") || ""
+              ) || [],
+          };
+        default:
+          return block;
+      }
+    });
+
+    return {
+      id: blog.id,
+      documentId: blog.documentId,
+      title: blog.title,
+      sub_title: blog.sub_title,
+      text: blog.text,
+      slug: blog.slug,
+      createdAt: blog.createdAt,
+      updatedAt: blog.updatedAt,
+      publishedAt: blog.publishedAt,
+      content,
+      banner: banner
+        ? {
+            url: bannerUrl,
+            alt: banner.alternativeText || blog.title,
+            width: banner.width,
+            height: banner.height,
+          }
+        : null,
+      toc: blog.toc || [],
+      socialLinks: {
+        facebook: blog.facebook_url || null,
+        twitter: blog.twitter_url || null,
+        linkedin: blog.linkedin_url || null,
+      },
+    };
+  });
+}

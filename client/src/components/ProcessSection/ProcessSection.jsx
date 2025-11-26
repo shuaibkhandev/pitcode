@@ -6,14 +6,14 @@ export default async function ProcessSection() {
 
   if (!data) return null;
 
-  const { title, sub_title, steps } = data;
+  const { title, description, steps } = data;
 
   return (
     <section className={`${styles.process_section} section_padding section_bg`}>
       <div className="main_container">
         <div className="section_top">
           <h2 className="title">{title}</h2>
-          <p className="sub_title">{sub_title}</p>
+          <p className="sub_title">{description}</p>
         </div>
 
         <div className={styles.grid}>
