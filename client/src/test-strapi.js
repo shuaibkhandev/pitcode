@@ -1,12 +1,12 @@
-import {  getBlogs, getProjectsFlowSection } from "./lib/strapi.js";
-
+import fetchContentType from "./lib/fetchContentType.js";
 async function test() {
   try {
-    const header = await getBlogs();
+    const header =  await fetchContentType("aboutpage")
     console.log(header);
   } catch (err) {
     console.error(err);
   }
 }
+
 
 test();
